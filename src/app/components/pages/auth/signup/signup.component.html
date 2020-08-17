@@ -1,0 +1,109 @@
+<!-- Start Signup Area -->
+<section class="signup-area">
+    <div class="row m-0">
+        <div class="col-lg-6 col-md-12 p-0">
+            <div class="signup-image">
+                <img src="assets/img/signup-bg.jpg" alt="image">
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 p-0">
+            <div class="signup-content">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="signup-form">
+                            <div class="logo">
+                                <a >
+                                    <img src="assets/img/logo.png" alt="image">
+                                </a>
+                            </div>
+
+                            <h3>Open up your Significant Bots Account now</h3>
+                            <p>Already signed up? <a routerLink="/auth/signin">Sign in</a></p>
+
+                            <form name="form">
+                                <!-- <div class="form-group">
+                                    <input type="text" id="contest-title" class="form-control" placeholder="Your Unique username" name="username" [(ngModel)]="addContestDetails.username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                                        <div *ngIf="username.errors.required">User Name is required</div>
+                                    </div>
+                                </div> -->
+                                
+                                <div class="form-group">
+                                    <input type="text" id="contest-title" class="form-control" placeholder="Your FirstName" name="name"  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div class="invalid-feedback">
+                                        <div >First Name is required</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <input type="text" id="last" class="form-control" placeholder="Your Lastname" name="last" [(ngModel)]="addContestDetails.last" #last="ngModel" [ngClass]="{ 'is-invalid': f.submitted && last.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && last.invalid" class="invalid-feedback">
+                                        <div *ngIf="last.errors.required">Last Name is required</div>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <input type="email" id="email" class="form-control" placeholder="Your Email" name="email"   data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div  class="invalid-feedback">
+                                        <div >Email is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" class="form-control" placeholder="Your number  (Optional)" name="phone"  >
+                                    <!-- <input type="tel" id="phone" class="form-control" placeholder="Your number" name="phone" [(ngModel)]="addContestDetails.phone" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title=""> -->
+                                    <!-- <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+                                        <div *ngIf="phone.errors.required">Phone Number is required</div>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="form-group">
+                                    <input type="text" id="company_name" class="form-control" placeholder="Your Company Name" name="company_name" [(ngModel)]="addContestDetails.company_name" #company_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && company_name.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && company_name.invalid" class="invalid-feedback">
+                                        <div *ngIf="company_name.errors.required">Comapny Name is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="company_url" class="form-control" placeholder="Your Company Url" name="company_url" [(ngModel)]="addContestDetails.company_url" #company_url="ngModel" [ngClass]="{ 'is-invalid': f.submitted && company_url.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && company_url.invalid" class="invalid-feedback">
+                                        <div *ngIf="company_url.errors.required">Company URL is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="address" class="form-control" placeholder="Your Company Address" name="address" [(ngModel)]="addContestDetails.address" #address="ngModel" [ngClass]="{ 'is-invalid': f.submitted && address.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+                                        <div *ngIf="address.errors.required">Company address is required</div>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control" placeholder="Your Unique Password" name="password"   data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div class="invalid-feedback">
+                                        <div>Password is required</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <input type="text" id="verify" class="form-control" placeholder="Confirm Password" name="verify" [(ngModel)]="addContestDetails.verify" #verify="ngModel" [ngClass]="{ 'is-invalid': f.submitted && verify.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <div *ngIf="f.submitted && verify.invalid" class="invalid-feedback">
+                                        <div *ngIf="verify.errors.required">Verify Password is required</div>
+                                    </div>
+                                </div> -->
+                                <div class="form-actions">
+                                    <div class="my-display">
+                                        <img src="assets/img/ring.gif" style="width: 25px;">
+                                    </div>
+                                    <button type="submit" class="default-btn mb-3"><i class="bx bx-log-in"></i>Sign Up<span></span></button>
+                                   
+                                </div>
+                            
+
+                                <!-- <div class="connect-with-social">
+                                    <span>Or</span>
+                                    <button type="submit" class="facebook"><i class='bx bxl-facebook'></i> Connect with Facebook</button>
+                                    <button type="submit" class="google"><i class='bx bxl-google'></i> Connect with Google</button>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login Area -->

@@ -1,0 +1,105 @@
+
+<!-- Start Feedback Area -->
+
+<div class="page-content">
+
+    <div class="container my-5">
+        <!-- <h1 class="display-4 text-center">Basic Information</h1>
+        <p class=" text-center mb-5">You can change your info from here</p> -->
+        <form method="post" action="/updateProfile">
+       
+                <div class="form-group row ">
+                    <div class="col-12 col-sm-6">
+                        <label class="  ">First Name</label>
+                        <input class=" form-control" id="first_name" name="first_name" placeholder="First Name"
+                               type="text">
+                               
+                    </div>
+    
+                    <div class="col-12 col-sm-6">
+                        <label class="  ">Last Name</label>
+                        <input class=" form-control" id="last_name" name="last_name" placeholder="Last Name"
+                               type="text" >
+                    </div>
+                </div>
+    
+                <div class="form-group row justify-content-around">
+                    <div class="col-12 col-sm-6">
+                        <label class="  ">Phone</label>
+                        <input class=" form-control" id="phone" name="phone"
+                               placeholder="Enter your phone number" type="tel" pattern="^\d{10}"
+                               title="Please enter a vaild phone number">
+                    </div>
+    
+                    <!-- <div class="col-12 col-sm-6">
+                        <label class="  ">Email</label>
+                        <input class=" form-control" id="email" name="email" placeholder="Email Address"
+                               type="text" name="email" aria-describedby="emailHelp" value="{{this.updateContestDetails.email}}" required> 
+                    </div> -->
+                </div>
+    
+                <div class="form-group row justify-content-around">
+                    <div class="col-12 col-sm-6">
+                        <label class="  ">New Password</label>
+                        <input class="   form-control" placeholder="New Password" type="password"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                               autocomplete="off">
+                    </div>
+    
+                    <div class="col-12 col-sm-6">
+                        <label class="  ">Confirm Password</label>
+                        <input class="   form-control" id="ConfirmPassword" name="ConfirmPassword"
+                               placeholder="Confirm Password" type="password">
+                    </div>
+                </div>
+    
+                <div class="form-group row ">
+                    <div class="col-12 col-sm-12">
+                        <label class="   ">Company Name</label>
+                        <input class="  form-control" id="website" name="website"
+                               placeholder="Enter your company Name" type="text">
+                    </div>
+    
+                   
+                </div>
+                <div class="form-group row ">
+                 
+    
+                    <div class="col-12 col-sm-12">
+                        <label class="   ">Url</label>
+                        <input class="   form-control" id="webUrl" name="webUrl"
+                               placeholder="Website URL" type="text">
+                    </div>
+                </div>
+    
+                <!-- <div class="form-group row ">
+                    <div class="col-10">
+                        <label class="  ">Address</label>
+                        <textarea class=" form-control Paddress_area" type="text" id="publicinfo" name="publicinfo"
+                                  cols="40" rows="4" placeholder="Company Address">
+    
+                        </textarea>
+                    </div>
+                </div> -->
+
+            <div class="form-group row ">
+                <div class="ml-3">
+                    <!-- <button type="button" class="btn btn-outline-secondary mr-1" onclick="editProfile()">&nbsp Edit Profilez
+                        &nbsp
+                    </button> -->
+                    <!-- <button name="submit" type="submit" id="submit" class="ml-1 btn btn-outline-secondary" disabled>Update
+                        Profile
+                    </button> -->
+                    <button type="button" class="btn btn-sm  mr-1 btn-success" >Update Profile</button>
+                </div>
+            </div>
+        </form>
+    </div>   
+    </div>
+    
+    <!-- <div class="col-md-2"><app-sidenav></app-sidenav></div> -->
+
+
+
+

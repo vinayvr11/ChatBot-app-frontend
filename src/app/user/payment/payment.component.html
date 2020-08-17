@@ -1,0 +1,63 @@
+<div class=" paymentForm container-fluid shadow bg-white mrdbot">
+<div class="text-center pb-2">
+    <img src="../../../assets/img/logo.png" >
+</div>
+    <div class="row" id="payment-block">
+
+        <!-- <% if(price) { %> -->
+        <div class="col-sm">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1"
+                           value="" aria-describedby="emailHelp" readonly>
+                    <!-- <input type="email" class="form-control" id="exampleInputEmail1"
+                           value=<%= email %> aria-describedby="emailHelp" readonly> -->
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Phone No.</label>
+                    <!-- <input type="text" class="form-control" id="exampleInputPassword1" value=<%= phone %> readonly> -->
+                      <input type="text" class="form-control" id="exampleInputPassword1" value="" readonly>
+                </div>
+                <!-- <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <div class="mybtdiv pb-3">
+                <button class="default-btn sign-up" id="subscription" type="button">Payment</button>
+                </div>
+            </form>
+
+            <!-- <% if(planId) { %>
+                <input type="hidden" name="planId" id="planId" value=<%=planId%>>
+            <% } %> -->
+            <input type="hidden" name="planId" id="planId" value="">
+        </div>
+
+        <div class="col-sm">
+
+            <ul class="list-group">
+                <li class="list-group-item lists "><h6 class="my-0"> ChatBots Price </h6>
+                    <!-- <small class="text-muted smalls"> <%= quantity %> Bots </small> -->
+                    <!-- <span>&#8377; <%= price %>.00</span> -->
+                     <small class="text-muted smalls">  Bots </small> 
+                     <span>&#8377; </span>
+                </li>
+
+                <li class="list-group-item lists "><h6 class="my-0"> GST 0.2% </h6><span>&#8377; 78.00</span></li>
+                <li class="list-group-item lists "><h6 class="my-0"> Other services 2.5% </h6><span>&#8377; 435</span>
+                </li>
+                <li class="list-group-item lists "><h6 class="my-0"> Total (INR) </h6>
+                    <!-- <span>&#8377; <%= price %>.00</span> -->
+                     <span>&#8377; .00</span>
+                </li>
+               
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>

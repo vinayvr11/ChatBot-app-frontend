@@ -1,0 +1,116 @@
+
+
+
+<div class="page-wrapper chiller-theme toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" routerLink="#">
+        <i class="fas fa-bars"></i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="sidebar-wrapper" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+            <div class="sidebar-brand">
+                <a routerLink="#">User Portal</a>
+                <div id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-header">
+                <div class="user-pic">
+                    <img class="img-responsive img-rounded"
+                         src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                         alt="User picture">
+                </div>
+                <div class="user-info">
+            <span class="user-name"><strong>
+           
+                </strong>
+            </span>
+                    <span class="user-role">Administrator</span>
+                    <span class="user-status">
+              <i class="fa fa-circle"></i>
+              <span>Online</span>
+            </span>
+                </div>
+            </div>
+
+            <!-- sidebar-search  -->
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="header-menu">
+                        <span>General</span>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/profile">
+                            <i class="fas fa-users"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/profile">
+                            <i class="fas fa-users"></i>
+                            <span>My Chatbots</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/dashboard">
+                            <i class="fa fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/notifications">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+                        <a routerLink="/history">
+                            <i class="fas fa-history"></i>
+                            <span>History</span>
+                        </a>
+                    </li>
+
+                    <li class="header-menu">
+                        <span>Extra</span>
+                    </li>
+                    <li>
+                        <a routerLink="/docs">
+                            <i class="fa fa-book"></i>
+                            <span>Documentations</span>
+                            <span class="badge badge-pill badge-primary">Beta</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/botSupport">
+                            <i class="fas fa-question"></i>
+                            <span>Support</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/logout">
+                            <i class="fas fa-power-off"></i>
+                            <span>log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- sidebar-menu  -->
+        </div>
+    </nav>
+</div>

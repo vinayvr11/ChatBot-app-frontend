@@ -1,0 +1,59 @@
+.paymentForm{
+    width: 50%;
+     margin-top: 100px;
+     padding: 7% 5%;
+     z-index: 1;
+ }
+ @media(max-width: 768px){
+    .paymentForm{
+        width: 90%;
+         margin-top: 100px;
+         padding: 7% 5%;
+         z-index: 1;
+     }
+ }
+ 
+ h6 {
+     display: inline-block;
+     padding-bottom: 1rem;
+ 
+ }
+ span {
+     position: absolute;
+     right: 2rem;
+ }
+ 
+ .smalls {
+     position: absolute;
+     bottom: 2px;
+     left: 1.5rem;
+ }
+ 
+ .razorpay-payment-button {
+     visibility: hidden;
+ }
+ #payment-block {
+     margin-top: 2%;
+ }
+ 
+ .mybtdiv{
+     text-align: left;
+ }
+ @media(max-width: 768px){
+    .mybtdiv{
+        text-align: center;
+    }
+ }
+ .mrdbot{
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    border-radius: 2.25rem!important;
+ }
+ .default-btn{
+    color: #ffffff;
+    background-color: #080A3C;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+ }

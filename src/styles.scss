@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.spacle-nav .navbar .others-options .optional-btn:hover {
+    color: #ffffff !important;
+}
+
+// .spacle-nav .navbar .others-options .optional-btn i:hover{
+//     color: #ffffff !important;
+// }
+// .optional-btn i :hover {
+//     color: #ffffff !important;
+// }
+
+@media(max-width:768px){
+    .lead {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+}
