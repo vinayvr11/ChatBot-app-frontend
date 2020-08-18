@@ -1,3 +1,4 @@
+import { UserManagementService } from './../../../services/user-management/user-management.service';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,11 +11,15 @@ import { ViewportScroller } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor() { }
+    constructor(private userService: UserManagementService) { }
 
     ngOnInit() {
 
     }
+
+    getSignIn() {
+        console.log(this.userService.getUserData());
+      }
 }
 
 

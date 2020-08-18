@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { filter } from 'rxjs/operators';
+import { UserModel } from '../app/models/user-model/user-model.model';
+import { UserManagementService } from '../app/services/user-management/user-management.service';
+
 declare let $: any;
 
 @Component({
@@ -11,8 +14,10 @@ declare let $: any;
     providers: [
         Location, {
             provide: LocationStrategy,
-            useClass: PathLocationStrategy
-        }
+            useClass: PathLocationStrategy,
+        },
+        UserModel,
+        UserManagementService
     ]
 })
 export class AppComponent implements OnInit, OnDestroy {

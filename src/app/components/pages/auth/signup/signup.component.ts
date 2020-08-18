@@ -1,7 +1,9 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../../../../models/user-model/user-model.model';
 import { UserManagementService } from '../../../../services/user-management/user-management.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -15,5 +17,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(form: NgForm) {
+    console.log('Signup success', form.value);
+  }
 
 }
