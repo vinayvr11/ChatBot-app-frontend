@@ -12,4 +12,7 @@ export class PricingComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPriceClick() {
+    console.log('Price menu is clicked');
+  }
 }

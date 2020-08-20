@@ -44,6 +44,10 @@ import { AuthGuard } from '../app/app-routing.module';
 import { PaymentComponent } from './user/payment/payment.component';
 import { SuccessComponent } from './user/success/success.component';
 import { ResetpasswordComponent } from './user/resetpassword/resetpassword.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { HistoryComponent } from './user/history/history.component';
+import { ProfileSidebarComponent } from './user/profile-sidebar/profile-sidebar.component';
+import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,11 @@ import { ResetpasswordComponent } from './user/resetpassword/resetpassword.compo
     PaymentComponent,
     SuccessComponent,
     ResetpasswordComponent,
-    
+    ProfileComponent,
+    HistoryComponent,
+    ProfileSidebarComponent,
+    MyChatbotsComponent,
+
   ],
   imports: [
     BrowserModule,

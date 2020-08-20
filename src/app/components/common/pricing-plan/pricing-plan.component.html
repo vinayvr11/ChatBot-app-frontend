@@ -22,10 +22,10 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-pricing-table">
                                 <div class="pricing-header">
-                                    <h3>Free</h3>
+                                    <h3 #free>Free</h3>
                                 </div>
 
-                                <div class="price">
+                                <div class="price" #freePrice>
                                     <sup>$</sup>0<sub>/m</sub>
                                 </div>
 
@@ -44,7 +44,15 @@
                                     <li><i class="bx bxs-badge-check"></i> 10 days trial</li>                                </ul>
 
                                 <div class="btn-box">
-                                    <a  class="default-btn"><i class="bx bxs-hot"></i> Try It Free Now <span></span></a>
+                                    <a  class="default-btn"        
+                                     style="cursor: pointer;"
+                                      (click)="onOrderClick(free, freePrice)">
+                                      <i class="bx bxs-hot">
+
+                                      </i> Try It Free Now <span>
+
+                                      </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -52,10 +60,10 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="single-pricing-table">
                                 <div class="pricing-header">
-                                    <h3>Starter</h3>
+                                    <h3 #starter>Starter</h3>
                                 </div>
 
-                                <div class="price">
+                                <div class="price" #starterPrice>
                                     <sup>$</sup>145<sub>/m</sub>
                                 </div>
 
@@ -75,7 +83,9 @@
                                 </ul>
 
                                 <div class="btn-box">
-                                    <a class="default-btn"><i class="bx bxs-hot"></i> Get Now<span></span></a>
+                                    <a class="default-btn" 
+                                    style="cursor: pointer;"
+                                    (click)="onOrderClick(starter, starterPrice)"><i class="bx bxs-hot"></i> Get Now<span></span></a>
                                 </div>
                             </div>
                         </div>
@@ -83,10 +93,10 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
                             <div class="single-pricing-table">
                                 <div class="pricing-header">
-                                    <h3>Professional</h3>
+                                    <h3 #professional>Professional</h3>
                                 </div>
 
-                                <div class="price">
+                                <div class="price" #proPrice>
                                     <sup>$</sup>230<sub>/m</sub>
                                 </div>
 
@@ -106,7 +116,10 @@
                                 </ul>
 
                                 <div class="btn-box">
-                                    <a  class="default-btn"><i class="bx bxs-hot"></i> Get Now<span></span></a>
+                                    <a  class="default-btn"
+                                     style="cursor: pointer;"
+                                      (click)="onOrderClick(professional, proPrice)"
+                                      ><i class="bx bxs-hot"></i> Get Now<span></span></a>
                                 </div>
                             </div>
                         </div>

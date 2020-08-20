@@ -30,10 +30,10 @@
                                 </div> -->
                                 
                                 <div class="form-group">
-                                    <input type="text" id="contest-title" class="form-control" placeholder="Your FirstName" name="name" ngModel  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
-                                    <div class="invalid-feedback">
-                                        <div >First Name is required</div>
-                                    </div>
+                                    <input type="text" id="contest-title" #name="ngModel" class="form-control" placeholder="Your FirstName" name="name" ngModel  data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
+                                    <span class="invalid-feedback d-block" *ngIf="!name.valid && name.touched">
+                                        <span>Name is required</span>
+                                    </span>
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="text" id="last" class="form-control" placeholder="Your Lastname" name="last" [(ngModel)]="addContestDetails.last" #last="ngModel" [ngClass]="{ 'is-invalid': f.submitted && last.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
@@ -42,17 +42,14 @@
                                     </div>
                                 </div> -->
                                 <div class="form-group">
-                                    <input type="email" id="email" class="form-control" placeholder="Your Email" name="email" ngModel  data-toggle="tooltip" data-trigger="hover" data-placement="top" required email data-original-title="" title="">
-                                    <div  class="invalid-feedback">
-                                        <div >Email is required</div>
-                                    </div>
+                                    <input type="email" id="email" #email="ngModel" class="form-control" placeholder="Your Email" name="email" ngModel data-toggle="tooltip" data-trigger="hover" data-placement="top" required email data-original-title="" title="">
+                                    <span class="invalid-feedback d-block" *ngIf="!email.valid && email.touched">
+                                        <span>Email is required</span>
+                                    </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" id="phone" class="form-control" placeholder="Your number  (Optional)" ngModel name="phone"  >
-                                    <!-- <input type="tel" id="phone" class="form-control" placeholder="Your number" name="phone" [(ngModel)]="addContestDetails.phone" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title=""> -->
-                                    <!-- <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
-                                        <div *ngIf="phone.errors.required">Phone Number is required</div>
-                                    </div> -->
+                                    <input type="tel" id="phone"  class="form-control" placeholder="Your number  (Optional)" ngModel name="phone"  >
+                                    
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="text" id="company_name" class="form-control" placeholder="Your Company Name" name="company_name" [(ngModel)]="addContestDetails.company_name" #company_name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && company_name.invalid }" data-toggle="tooltip" data-trigger="hover" data-placement="top" required data-original-title="" title="">
@@ -107,3 +104,4 @@
     </div>
 </section>
 <!-- End Login Area -->
+

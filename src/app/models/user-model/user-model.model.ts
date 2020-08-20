@@ -13,8 +13,8 @@ export class UserModel {
   };
 
   loginModel = {
-    name: '',
-    email: 'vr54640@gmail.com'
+    email: '',
+    password: ''
   };
 
 }

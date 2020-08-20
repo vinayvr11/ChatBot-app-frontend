@@ -18,15 +18,41 @@ import {
 export class SigninComponent implements OnInit {
 
 
-  constructor(private userService: UserManagementService) {}
+  constructor(
+    private userService: UserManagementService,
+    private userModel: UserModel,
+    private router: Router
+    ) {}
 
   ngOnInit() {
 
   }
 
   onSubmit(form: NgForm) {
+
+    this.userModel.loginModel.email = form.value.email;
+    this.userModel.loginModel.password = form.value.password;
+
+    this.userService.signIn(this.userModel.loginModel)
+    .subscribe( (data: any) => {
+
+      if (data.message) {
+        console.log(data.userData);
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userdata', JSON.stringify(data.userData));
+        this.navProfile();
+      } else {
+        console.log(data);
+      }
+
+    });
+
     console.log('Form data', form.value);
   }
 
+
+  navProfile() {
+    this.router.navigate(['/profile']);
+  }
 
 }

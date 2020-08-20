@@ -14,12 +14,14 @@ import { SignupComponent } from './components/pages/auth/signup/signup.component
 import { SigninComponent } from './components/pages/auth/signin/signin.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
 import { ErrorComponent } from './components/pages/error/error.component';
+import { ProfileComponent } from '../app/user/profile/profile.component';
 import { BlogComponent } from './components/pages/blog/blog/blog.component';
 import { BlogGridComponent } from './components/pages/blog/blog-grid/blog-grid.component';
 import { BlogSidebarComponent } from './components/pages/blog/blog-sidebar/blog-sidebar.component';
 import { BlogDetailsComponent } from './components/pages/blog/blog-details/blog-details.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
-
+import { HistoryComponent } from '../app/user/history/history.component';
+import { MyChatbotsComponent } from '../app/user/my-chatbots/my-chatbots.component';
 import { SupportComponent } from './user/support/support.component';
 import { UserManagementService } from '../app/services/user-management/user-management.service';
 import { PaymentComponent } from './user/payment/payment.component';
@@ -52,11 +54,11 @@ export class AuthGuard implements CanActivate {
 const routes: Routes = [
     { path: '', component: HomeComponent },
 
-    { path: 'support',  canActivate: [AuthGuard], component: SupportComponent },
-    { path: 'success',  canActivate: [AuthGuard], component: SuccessComponent },
+    { path: 'support',  component: SupportComponent },
+    { path: 'success',  component: SuccessComponent },
 
     { path: 'resetpassword/:id', component: ResetpasswordComponent },
-    { path: 'payment/:id/:id1/:id2/:id3',  canActivate: [AuthGuard], component: PaymentComponent },
+    { path: 'payment',  component: PaymentComponent },
 
     {
         path: 'auth', component: AuthComponent,
@@ -72,6 +74,9 @@ const routes: Routes = [
         ]
     },
 
+    {path: 'profile', component: ProfileComponent},
+    {path: 'history', component: HistoryComponent},
+    {path: 'user-cahtbots', component: MyChatbotsComponent},
     { path: 'contact', component: ContactComponent },
     { path: '**', component: ErrorComponent },
 ];
