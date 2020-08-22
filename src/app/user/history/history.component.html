@@ -5,24 +5,28 @@
        </div>
        <div class="col-sm">
         <div class="row h-100">
-            <div class="col-sm h-100 bg-primary">
-                <div style="height: 10%; background-color: aqua;">
+            <div class="col-sm h-100 shadow-lg">
+                <div style="height: 8%; margin-top: 5%;" class="border-top border-bottom row">
                     
                 </div>
-                <div style="height: 10%; background-color: darkblue;">
-                    
+                <div style="height: 8%;cursor:pointer;"
+                 (click)="showChats(session)"
+                  class="row border-top border-bottom" 
+                  *ngFor="let chat of sessionChats"
+                  >
+
+                    <p #session > {{ chat.session_id }} </p>
+
                 </div>
-                <div style="height: 10%; background-color: darkgoldenrod;">
-                    
-                </div>
-                <div style="height: 10%; background-color: darkgray;">
-                    
-                </div>
+                
+                
 
             </div>
-            <div class="col-sm h-100 bg-dark">
-                <div class="text-left"> Hello vinay </div>
-                <div class="text-right"> Hi Who Are You </div>
+            <div class="col-sm h-100">
+                <div *ngFor="let sesschat of chats">
+                    <div class="text-left" > {{ sesschat.ques }} </div>
+                    <div class="text-right"> {{ sesschat.ans }} </div>
+                </div>
             </div >
         </div>
        </div>

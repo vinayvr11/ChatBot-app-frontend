@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +51,8 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { HistoryComponent } from './user/history/history.component';
 import { ProfileSidebarComponent } from './user/profile-sidebar/profile-sidebar.component';
 import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
+import { RazorpayComponent } from './user/razorpay/razorpay.component';
+import { DashboardComponent } from './user/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +96,8 @@ import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
     HistoryComponent,
     ProfileSidebarComponent,
     MyChatbotsComponent,
+    RazorpayComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -99,6 +106,8 @@ import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
     FormsModule,
     HttpClientModule,
     ChartsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
     ModalModule.forRoot(),
   ],
   providers: [

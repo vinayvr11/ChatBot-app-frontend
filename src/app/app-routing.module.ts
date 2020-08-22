@@ -1,3 +1,4 @@
+import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { NgModule , Injectable  } from '@angular/core';
 import { Routes, RouterModule , CanActivate , Router } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -27,6 +28,8 @@ import { UserManagementService } from '../app/services/user-management/user-mana
 import { PaymentComponent } from './user/payment/payment.component';
 import { SuccessComponent } from './user/success/success.component';
 import { ResetpasswordComponent } from './user/resetpassword/resetpassword.component';
+
+
 @Injectable()
 export class AuthGuard implements CanActivate {
 
@@ -57,8 +60,16 @@ const routes: Routes = [
     { path: 'support',  component: SupportComponent },
     { path: 'success',  component: SuccessComponent },
 
+    {path: 'payment', component: PaymentComponent, children: [
+        {path: ':id/:amount/:quantity/:category', component: PaymentComponent},
+        {path: ':amount/:quantity/:category', redirectTo: '/pricing'},
+        {path: ':quantity/:category', redirectTo: '/pricing'},
+        {path: ':category', redirectTo: '/pricing'},
+    ]},
+
+    {path: 'pricing', component: PricingComponent},
+
     { path: 'resetpassword/:id', component: ResetpasswordComponent },
-    { path: 'payment',  component: PaymentComponent },
 
     {
         path: 'auth', component: AuthComponent,
@@ -78,6 +89,7 @@ const routes: Routes = [
     {path: 'history', component: HistoryComponent},
     {path: 'user-cahtbots', component: MyChatbotsComponent},
     { path: 'contact', component: ContactComponent },
+    { path: 'dashboard', component: DashboardComponent},
     { path: '**', component: ErrorComponent },
 ];
 

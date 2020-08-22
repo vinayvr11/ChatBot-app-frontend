@@ -17,4 +17,25 @@ export class UserModel {
     password: ''
   };
 
+  paymentPath = {
+    quantity: '',
+    company_id: '',
+    planId: ''
+  };
+
+  botIntegrate = {
+    company_id: '',
+    project_id: '',
+    name: '',
+    category: '',
+    number: '',
+    platform: '',
+  };
+
+  historyModel = {
+    company_id: '',
+    project_id: ''
+  };
+
 }
+

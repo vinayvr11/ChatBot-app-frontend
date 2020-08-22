@@ -26,4 +26,24 @@ export class UserManagementService {
     public signIn(signInModel) {
       return this.http.post(environment.apiurl + '/login', this.userModel.loginModel);
     }
+
+    public getPlans(category) {
+      return this.http.get(environment.apiurl + '/getPlan' + '/' + category);
+    }
+
+    public createPlan(paymentBody) {
+      return this.http.post(environment.apiurl + '/createPayment', paymentBody);
+    }
+
+    public myChatBotData(companyId) {
+      return this.http.post(environment.apiurl + '/myChatBot', {company_id: companyId});
+    }
+
+    public integrateBot(integrateModel) {
+      return this.http.post(environment.apiurl + '/integrateBot', integrateModel);
+    }
+
+    public getChatHistory(user) {
+      return this.http.post(environment.apiurl + '/history/' + user.project_id, user);
+    }
 }
