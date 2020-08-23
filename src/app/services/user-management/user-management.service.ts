@@ -46,4 +46,8 @@ export class UserManagementService {
     public getChatHistory(user) {
       return this.http.post(environment.apiurl + '/history/' + user.project_id, user);
     }
+
+    public getDashboardData(user) {
+      return this.http.post(environment.apiurl + '/dashboard/' + user.project_id, user);
+    }
 }
