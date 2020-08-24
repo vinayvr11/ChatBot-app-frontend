@@ -39,6 +39,23 @@ export class UserModel {
     header: ''
   };
 
+  mailbody = {
+    phone: '',
+    name: '',
+    email: '',
+    message: '',
+    subject: ''
+  };
+
+  updateBody = {
+    company_name: '',
+    company_url: '',
+    address: '',
+    phone: '',
+    name: '',
+    header: '',
+    company_id: ''
+  };
 
 }
 

@@ -68,5 +68,17 @@ export class UserManagementService {
       return this.http.post(environment.apiurl + '/dashboard/' + user.project_id, user, this.header);
     }
 
+    public sendMail(mailBody) {
+      return this.http.post(environment.apiurl + '/support',  mailBody);
+    }
+
+    public updateProfile(updateBody) {
+      this.header = {
+        headers: new HttpHeaders({
+          authorization: updateBody.header
+        })
+      };
+      return this.http.post(environment.apiurl + '/updateProfile', updateBody, this.header);
+    }
 
 }

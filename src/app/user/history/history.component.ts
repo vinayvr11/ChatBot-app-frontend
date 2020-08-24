@@ -13,6 +13,8 @@ export class HistoryComponent implements OnInit {
   sessionChats: any;
   chats: any;
   token: any;
+  botsId: any[];
+
 
   constructor(
     private userModel: UserModel,
@@ -22,11 +24,20 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
 
     this.userData = JSON.parse(localStorage.getItem('userdata'));
-
-
+    this.botsId = this.userData.project_id;
     console.log('Data', this.userData.company_id);
+    this.getHistoryData(this.userData.project_id[0]);
+  }
+
+
+  onClickBotId(botId) {
+    console.log(botId);
+    this.getHistoryData(botId.innerText);
+  }
+
+  getHistoryData(botId) {
     this.userModel.historyModel.company_id = this.userData.company_id;
-    this.userModel.historyModel.project_id = this.userData.project_id[0];
+    this.userModel.historyModel.project_id = botId;
     this.userModel.historyModel.header = localStorage.getItem('token');
     this.userManagementService.getChatHistory(this.userModel.historyModel)
 
@@ -37,6 +48,7 @@ export class HistoryComponent implements OnInit {
     });
 
   }
+
 
   showChats(session) {
     this.sessionChats.forEach(element => {

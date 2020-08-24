@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   single: any[];
   multi: any[];
   token: any;
+  botsId: any[];
 
   view: any[] = [700, 300];
 
@@ -82,8 +83,19 @@ export class DashboardComponent implements OnInit {
 
     this.userData = JSON.parse(localStorage.getItem('userdata'));
     this.token = localStorage.getItem('token');
+    this.botsId = this.userData.project_id;
+    this.getDashboardData(this.userData.project_id[0]);
+  }
+
+
+  onClickBotId(botId) {
+    console.log(botId);
+    this.getDashboardData(botId.innerText);
+  }
+
+  getDashboardData(botId) {
     this.userModel.historyModel.company_id = this.userData.company_id;
-    this.userModel.historyModel.project_id = this.userData.project_id[0];
+    this.userModel.historyModel.project_id = botId;
     this.userModel.historyModel.header = this.token;
     this.userManagementService.getDashboardData(this.userModel.historyModel)
 
@@ -110,7 +122,6 @@ export class DashboardComponent implements OnInit {
        console.log(dashboardData.userData.intents);
 
      });
-
   }
 
 }

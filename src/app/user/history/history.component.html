@@ -5,9 +5,24 @@
        </div>
        <div class="col-sm">
         <div class="row h-100">
+             
             <div class="col-sm h-100 shadow-lg">
                 <div style="height: 8%; margin-top: 5%;" class="border-top border-bottom row">
-                    
+                    <!-- Header section starts from here -->
+             <div class="col-sm-12" style="height: 5%;background-color: aqua;">
+                <span> Dashboard </span>
+                <div class="dropdown float-right">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" *ngFor="let botId of botsId" #BotId 
+                    (click)="onClickBotId(BotId)" style="cursor: pointer;">  
+                    {{ botId }}
+                  </a>
+                  </div>
+                </div>
+              </div>
                 </div>
                 <div style="height: 8%;cursor:pointer;"
                  (click)="showChats(session)"

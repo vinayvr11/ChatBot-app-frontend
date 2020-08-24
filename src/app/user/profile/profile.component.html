@@ -1,36 +1,81 @@
-<div class="container-fluid h-100">
+<div class="container-fluid h-100" style="padding: 0;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav disable-upper-header">
+            <a class="nav-item nav-link active" routerLink="/profile">Profile <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" routerLink="/user-cahtbots">My ChatBots</a>
+            <a class="nav-item nav-link"routerLink="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link " routerLink='/history'>History</a>
+            <a class="nav-item nav-link " routerLink='/support'>Support</a>
+            <a class="nav-item nav-link " href="#">LogOut</a>
+
+
+          </div>
+        </div>
+      </nav>
     <div class="row h-100">
-       <div class="col-2 pl-0 hidden-md-down">
+       <div class="col-2 pl-0 hidden-md-down disable-left-header">
             <app-profile-sidebar></app-profile-sidebar>
        </div>
         <div class="col-sm">
-            <div class="row shadow-lg" style="margin-top: 8%;">
+            <div class="row shadow-lg" style="margin-top: 5%;">
                 <div class="col-lg-12" style="padding-left: 0;">
-                    <div style="height: 20rem; background-color: #080A3C;text-align: center;color: white;" >
-                      <img class="align-bottom" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
-                        <span> {{ name }} </span>
-                        <span> Status: Online </span>
-                        <span> Edit Profile </span>
+                    <div style="height: 20rem; background-color: #080A3C;text-align: center;color: white; padding-top: 3%;" >
+                      <img class="align-bottom" style="margin-bottom: 2%;" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
+                        <span style="margin-top: 12%;"> {{ name }} </span>
+                       
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="row" style="margin-top: 5%;margin-bottom: 5%;"> 
                         <div class="col-lg-6">
-                            <ul class="list-group">
-                            <li class="list-group-item border-0">Name: {{ name }}</li>
-                            <li class="list-group-item border-0">UserName: {{ username }}</li>
-                            <li class="list-group-item border-0">Phone: {{ phone }}</li>
-                            
-                          </ul> 
+                            <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1" class="input-text">UserName:</label>
+                                  <input type="text" class="form-control input-customize" #Username id="exampleInputEmail1" aria-describedby="emailHelp" [value]="username" [readonly]="readonly">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1" class="input-text">Name:</label>
+                                  <input type="text" class="form-control input-customize" #Name id="exampleInputPassword1" [value]="name" [readonly]="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="input-text">Phone:</label>
+                                    <input type="text" class="form-control input-customize" #Phone id="exampleInputPassword1" [value]="phone" [readonly]="readonly">
+                                  </div>
+                              </form>
                         </div>
                         <div class="col-lg-6">
-                            <ul class="list-group">
-                                <li class="list-group-item rounded border-0">Website: {{ website }}</li>
-                                <li class="list-group-item rounded border-0">Email: {{ email }}</li>
-                                <li class="list-group-item rounded border-0">Company Name: {{ companyname }}</li>
-                              </ul> 
+                            <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1" >Email:</label>
+                                  <input type="text" class="form-control second-input-customize" #Email id="exampleInputEmail1" aria-describedby="emailHelp" [value]="email" [readonly]="readonly">
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1" >Website Link:</label>
+                                  <input type="text" class="form-control second-input-customize" #Website id="exampleInputPassword1" [value]="website" [readOnly]="readonly">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" >Company Name:</label>
+                                    <input type="text" class="form-control second-input-customize" #Company id="exampleInputPassword1" [value]="companyname" [readonly]="readonly">
+                                  </div>
+                               
+                              </form>
+                        </div>
+                        <div class="col-sm-12 btn-col">
+                            <button type="submit" class="btn btn-primary profile-btn" (click)="onEditProfile()">Edit Profile</button>
+                            <button type="submit" class="btn btn-primary form-group" 
+                            (click)="onUpdateProfile(Name, Phone, Website, Company)"
+                            style="margin-bottom: 0;">
+                            Update Profile</button>
+
                         </div>
                     </div>
+                    
+
                 </div>
             </div>
         </div>
