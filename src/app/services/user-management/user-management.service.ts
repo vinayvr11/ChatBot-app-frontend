@@ -12,6 +12,8 @@ export class UserManagementService {
     private http: HttpClient,
   ) {}
 
+    header: any;
+
     public getUserData() {
       console.log(this.userModel.loginModel.email);
     }
@@ -35,8 +37,13 @@ export class UserManagementService {
       return this.http.post(environment.apiurl + '/createPayment', paymentBody);
     }
 
-    public myChatBotData(companyId) {
-      return this.http.post(environment.apiurl + '/myChatBot', {company_id: companyId});
+    public myChatBotData(companyId, header) {
+      this.header = {
+        headers: new HttpHeaders({
+          authorization: header
+        })
+      };
+      return this.http.post(environment.apiurl + '/myChatBot', {company_id: companyId}, this.header);
     }
 
     public integrateBot(integrateModel) {
@@ -44,10 +51,22 @@ export class UserManagementService {
     }
 
     public getChatHistory(user) {
-      return this.http.post(environment.apiurl + '/history/' + user.project_id, user);
+      this.header = {
+        headers: new HttpHeaders({
+          authorization: user.header
+        })
+      };
+      return this.http.post(environment.apiurl + '/history/' + user.project_id, user, this.header);
     }
 
     public getDashboardData(user) {
-      return this.http.post(environment.apiurl + '/dashboard/' + user.project_id, user);
+      this.header = {
+        headers: new HttpHeaders({
+          authorization: user.header
+        })
+      };
+      return this.http.post(environment.apiurl + '/dashboard/' + user.project_id, user, this.header);
     }
+
+
 }

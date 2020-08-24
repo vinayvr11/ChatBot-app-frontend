@@ -12,6 +12,7 @@ export class HistoryComponent implements OnInit {
   userData: any;
   sessionChats: any;
   chats: any;
+  token: any;
 
   constructor(
     private userModel: UserModel,
@@ -21,9 +22,12 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
 
     this.userData = JSON.parse(localStorage.getItem('userdata'));
+
+
     console.log('Data', this.userData.company_id);
     this.userModel.historyModel.company_id = this.userData.company_id;
     this.userModel.historyModel.project_id = this.userData.project_id[0];
+    this.userModel.historyModel.header = localStorage.getItem('token');
     this.userManagementService.getChatHistory(this.userModel.historyModel)
 
     .subscribe( (chat: any) => {

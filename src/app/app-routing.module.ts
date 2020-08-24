@@ -1,3 +1,4 @@
+import { AuthGuardService} from './user/auth-guard.service';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { NgModule , Injectable  } from '@angular/core';
 import { Routes, RouterModule , CanActivate , Router } from '@angular/router';
@@ -86,10 +87,10 @@ const routes: Routes = [
     },
 
     {path: 'profile', component: ProfileComponent},
-    {path: 'history', component: HistoryComponent},
-    {path: 'user-cahtbots', component: MyChatbotsComponent},
-    { path: 'contact', component: ContactComponent },
-    { path: 'dashboard', component: DashboardComponent},
+    {path: 'history', component: HistoryComponent, canActivate: [AuthGuardService]},
+    {path: 'user-cahtbots', component: MyChatbotsComponent, canActivate: [AuthGuardService]},
+    { path: 'contact', component: ContactComponent, canActivate: [AuthGuardService]},
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
     { path: '**', component: ErrorComponent },
 ];
 

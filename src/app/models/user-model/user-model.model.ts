@@ -30,12 +30,15 @@ export class UserModel {
     category: '',
     number: '',
     platform: '',
+    header: ''
   };
 
   historyModel = {
     company_id: '',
-    project_id: ''
+    project_id: '',
+    header: ''
   };
+
 
 }
 

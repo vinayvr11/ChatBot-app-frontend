@@ -114,11 +114,6 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
   BsModalRef,
   BsModalService,
   AuthGuard,
-  // {
-  //   provide: LocationStrategy,
-  //   // useClass: PathLocationStrategy,
-  //   useClass: HashLocationStrategy,
-  // },
   ],
   entryComponents: [
     UpdateProfileComponent,

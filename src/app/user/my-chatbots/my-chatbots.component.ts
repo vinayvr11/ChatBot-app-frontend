@@ -14,6 +14,7 @@ export class MyChatbotsComponent implements OnInit {
   botData: any;
   projectId: string;
   iFrameCode: string;
+  token: string;
 
   constructor(
     private userManagementService: UserManagementService,
@@ -22,7 +23,9 @@ export class MyChatbotsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('userdata'));
-    this.userManagementService.myChatBotData(this.userData.company_id)
+    this.token = localStorage.getItem('token');
+
+    this.userManagementService.myChatBotData(this.userData.company_id, this.token)
     .subscribe( (botData: any) => {
        this.botData = [...botData.botsData.allBots];
        console.log('MyChatBot', this.botData);
