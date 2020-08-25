@@ -39,6 +39,12 @@ export class UserModel {
     header: ''
   };
 
+  dashboarModel = {
+    company_id: '',
+    project_id: '',
+    header: ''
+  };
+
   mailbody = {
     phone: '',
     name: '',

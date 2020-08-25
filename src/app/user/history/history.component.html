@@ -1,22 +1,27 @@
-<div class="container-fluid h-100">
+<div class="container-fluid h-100" style="padding: 0%;"> 
+  <app-profile-responsive-bar></app-profile-responsive-bar>
     <div class="row h-100">
-       <div class="col-2 pl-0 hidden-md-down">
-            <app-profile-sidebar></app-profile-sidebar>
-       </div>
+      <div class="col-2 pl-0 hidden-md-down disable-left-header">
+        <app-profile-sidebar class="chat-app"></app-profile-sidebar>
+      </div>
        <div class="col-sm">
-        <div class="row h-100">
+        <div class="row h-100 large-screen-chat-app">
              
-            <div class="col-sm h-100 shadow-lg">
-                <div style="height: 8%; margin-top: 5%;" class="border-top border-bottom row">
+            <div class="col-sm-3 h-100 left-user-bar">
+                <div style="height: 8%; margin-top: 5%;" class=" border-bottom row">
                     <!-- Header section starts from here -->
-             <div class="col-sm-12" style="height: 5%;background-color: aqua;">
-                <span> Dashboard </span>
+             <div class="col-sm-12">
+                <span class="chat-heading"> Chats </span>
                 <div class="dropdown float-right">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-secondary dropdown-toggle"
+                   type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false">
                     Dropdown button
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" *ngFor="let botId of botsId" #BotId 
+                    <a class="dropdown-item " *ngFor="let botId of botsId" #BotId 
                     (click)="onClickBotId(BotId)" style="cursor: pointer;">  
                     {{ botId }}
                   </a>
@@ -26,24 +31,156 @@
                 </div>
                 <div style="height: 8%;cursor:pointer;"
                  (click)="showChats(session)"
-                  class="row border-top border-bottom" 
+                  class="row" 
                   *ngFor="let chat of sessionChats"
                   >
 
-                    <p #session > {{ chat.session_id }} </p>
-
+                    <div class="chat-user-img undefined align-self-center mr-3">
+                      <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span></div>
+                    </div>
+                    
+                    <p #session class=" left-user-bar-inside font-size-15 mb-1"> {{ chat.session_id }} </p>
+                  
                 </div>
                 
                 
 
             </div>
             <div class="col-sm h-100">
+                <div class="p-3 p-lg-4 border-bottom">
+                  <div class="align-items-center row">
+                    <div class="col-8 col-sm-4">
+                      <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                        <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                        </div>
+                        
+                      </div>
+                      <span> Vinay Rana </span>
+                    </div>
+
+                    <div class="col-4 col-sm-8"></div>
+                  </div>
+                </div>
                 <div *ngFor="let sesschat of chats">
-                    <div class="text-left" > {{ sesschat.ques }} </div>
-                    <div class="text-right"> {{ sesschat.ans }} </div>
+                   
+                          <div class="text-left" style="margin-top: 3%;margin-bottom: 2%;">
+                            <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                              </div>
+                              
+                            </div>
+                            <span>{{ sesschat.ques }} </span>
+                              
+                            </div>
+
+                      
+
+                
+                          <div class="text-right" >
+                            <span>{{ sesschat.ans }} </span>
+                            <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                              </div>
+                              
+                            </div>
+                            </div>
+
+                     
+
                 </div>
             </div >
         </div>
+
+
+        <!-- Respponsive Replcation of chatApp Invokes only at smaller screen -->
+
+        <div class="row h-100 small-screen-chat-app">
+             
+          <div class="col-sm-12 h-100 left-user-bar">
+              <div style="height: 8%; margin-top: 5%;" class="border-top border-bottom row">
+                  <!-- Header section starts from here -->
+           <div class="col-sm-12">
+              <span class="chat-heading"> Chats </span>
+              <div class="dropdown float-right">
+                <button class="btn btn-secondary dropdown-toggle"
+                 type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" 
+                  aria-haspopup="true" 
+                  aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item " *ngFor="let botId of botsId" #BotId 
+                  (click)="onClickBotId(BotId)" style="cursor: pointer;">  
+                  {{ botId }}
+                </a>
+                </div>
+              </div>
+            </div>
+              </div>
+              <div style="height: 8%;cursor:pointer;"
+               (click)="showChats(session)"
+                class="row" 
+                *ngFor="let chat of sessionChats"
+                >
+
+                  <div class="chat-user-img undefined align-self-center mr-3">
+                    <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span></div>
+                  </div>
+                  
+                  <p #session class=" left-user-bar-inside font-size-15 mb-1"> {{ chat.session_id }} </p>
+                
+              </div>
+              
+              
+
+          </div>
+          <div class="col-sm-12 h-100">
+              <div class="p-3 p-lg-4 border-bottom">
+                <div class="align-items-center row">
+                  <div class="col-8 col-sm-4">
+                    <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                      <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                      </div>
+                      
+                    </div>
+                    <span> Vinay Rana </span>
+                  </div>
+
+                  <div class="col-4 col-sm-8"></div>
+                </div>
+              </div>
+              <div *ngFor="let sesschat of chats">
+                 
+                        <div class="text-left" style="margin-top: 3%;margin-bottom: 2%;">
+                          <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                            </div>
+                            
+                          </div>
+                          <span>{{ sesschat.ques }} </span>
+                            
+                          </div>
+
+                    
+
+              
+                        <div class="text-right" >
+                          <span>{{ sesschat.ans }} </span>
+                          <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
+                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                            </div>
+                            
+                          </div>
+                          </div>
+
+                   
+
+              </div>
+          </div >
+      </div>
+
+        <!-- End of Responsive chatApp -->
        </div>
         
     </div>

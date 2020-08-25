@@ -75,16 +75,14 @@ export class DashboardComponent implements OnInit {
    // Object.assign(this, { multi });
    this.multi = multi;
    Object.assign(this, { single });
-
-
+   this.userData = JSON.parse(localStorage.getItem('userdata'));
+   this.token = localStorage.getItem('token');
+   this.botsId = this.userData.project_id;
+   // this.getDashboardData(this.userData.project_id[0]);
   }
 
   ngOnInit(): void {
 
-    this.userData = JSON.parse(localStorage.getItem('userdata'));
-    this.token = localStorage.getItem('token');
-    this.botsId = this.userData.project_id;
-    this.getDashboardData(this.userData.project_id[0]);
   }
 
 
@@ -94,19 +92,24 @@ export class DashboardComponent implements OnInit {
   }
 
   getDashboardData(botId) {
-    this.userModel.historyModel.company_id = this.userData.company_id;
-    this.userModel.historyModel.project_id = botId;
-    this.userModel.historyModel.header = this.token;
-    this.userManagementService.getDashboardData(this.userModel.historyModel)
+    this.messagesData = [];
+    this.sessionsData = [];
+
+    console.log('Dashboard data of the user ', botId);
+    this.userModel.dashboarModel.company_id = this.userData.company_id;
+    this.userModel.dashboarModel.project_id = botId;
+    this.userModel.dashboarModel.header = this.token;
+    this.userManagementService.getDashboardData(this.userModel.dashboarModel)
 
     .subscribe( (dashboardData: any) => {
-       console.log('Your sahboard data', dashboardData.userData);
+       console.log('Your sahboard data', dashboardData);
        this.lineChartLabels = dashboardData.userData.lineChartLabels;
        this.msgChartData = dashboardData.userData.msgChartData;
        this.sessionChartData = dashboardData.userData.sessionChartData;
 
        console.log(this.lineChartLabels);
        console.log(this.msgChartData);
+
        this.messagesData = this.dashboardService.getSessionData(this.lineChartLabels,
         this.msgChartData,
         this.sessionChartData)
@@ -120,6 +123,7 @@ export class DashboardComponent implements OnInit {
        this.intentsData = dashboardData.userData.intents;
 
        console.log(dashboardData.userData.intents);
+       console.log(this.sessionsData);
 
      });
   }

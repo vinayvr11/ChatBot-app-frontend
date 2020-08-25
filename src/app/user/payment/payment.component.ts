@@ -25,7 +25,16 @@ export class PaymentComponent implements OnInit {
     private userManagementService: UserManagementService,
     private userModel: UserModel,
     private winRef: WindowRefService
-  ) { }
+  ) {
+
+    this.userSessionData = JSON.parse(localStorage.getItem('userdata'));
+    if (this.userSessionData) {
+      if (this.userSessionData.isBuy) {
+        alert('You have already buy our bot please contact admins if you want to buy more.');
+        this.router.navigate(['/']);
+      }
+    }
+   }
 
   ngOnInit(): void {
     this.activateRoute.firstChild.params
@@ -84,7 +93,7 @@ export class PaymentComponent implements OnInit {
 
 
   instantiatePaymentData() {
-   this.userSessionData = JSON.parse(localStorage.getItem('userdata'));
+
    if (this.userSessionData) {
         this.userModel.paymentPath.company_id = this.userSessionData.company_id;
         this.userModel.paymentPath.planId = this.planId;
@@ -103,6 +112,7 @@ export class PaymentComponent implements OnInit {
 
     } else {
       alert('Please login first');
+      this.router.navigate(['/']);
     }
   }
 }

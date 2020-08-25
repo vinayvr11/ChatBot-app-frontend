@@ -53,6 +53,7 @@ import { ProfileSidebarComponent } from './user/profile-sidebar/profile-sidebar.
 import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
 import { RazorpayComponent } from './user/razorpay/razorpay.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
+import { ProfileResponsiveBarComponent } from './user/profile-responsive-bar/profile-responsive-bar.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
     MyChatbotsComponent,
     RazorpayComponent,
     DashboardComponent,
+    ProfileResponsiveBarComponent,
 
   ],
   imports: [

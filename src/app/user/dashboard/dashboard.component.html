@@ -1,17 +1,23 @@
 
-<div class="container-fluid h-100">
-   
+<div class="container-fluid h-100" style="padding: 0%;">
+  <app-profile-responsive-bar></app-profile-responsive-bar>
     <div class="row h-100">
-       <div class="col-2 pl-0 hidden-md-down">
-            <app-profile-sidebar></app-profile-sidebar>
-       </div> 
+      <div class="col-2 pl-0 hidden-md-down disable-left-header">
+        <app-profile-sidebar></app-profile-sidebar>
+      </div>
        <div class="col-sm-10">
-            <div class="row">
+            <div class="row whole-graphs shadow-lg">
               <!-- Header section starts from here -->
-                <div class="col-sm-12" style="height: 5%;background-color: aqua;">
-                  <span> Dashboard </span>
+                <div class="col-sm-12" style="height: 5%">
+                  <span class="navbar-brand"> Dashboard </span>
                   <div class="dropdown float-right">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle"
+                     type="button"
+                      id="dropdownMenuButton"
+                       data-toggle="dropdown"
+                        aria-haspopup="true"
+                         aria-expanded="false"
+                         style="margin-top: 5%;">
                       Dropdown button
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -22,9 +28,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-12"  #containerRef>
+                <div class="col-sm-12 line"  #containerRef>
                     <ngx-charts-line-chart
-                    [view]= "[1350 , 400]"
+                    [view]= "[containerRef.offsetWidth, 400]"
                     [scheme]="colorScheme"
                     [legend]="legend"
                     [showXAxisLabel]="showXAxisLabel"
@@ -41,9 +47,9 @@
                   
 
                 </div>
-                <div class="col-sm-6" #bar>
+                <div class="col-sm-6 bar" #bar>
                     <ngx-charts-bar-vertical
-                    [view]="[ 700,  400]"
+                    [view]="[ bar.offsetWidth,  400]"
                     [scheme]="colorSchemeBar"
                     [results]="intentsData"
                     [gradient]="gradient"
@@ -58,9 +64,9 @@
                   </ngx-charts-bar-vertical>
                 </div>
 
-                <div class="col-sm-6" #piee>
+                <div class="col-sm-6 line2" #piee>
                     <ngx-charts-line-chart
-                    [view]= "[700 , 400]"
+                    [view]= "[piee.offsetWidth, 400]"
                     [scheme]="colorScheme"
                     [legend]="legend"
                     [showXAxisLabel]="showXAxisLabel"

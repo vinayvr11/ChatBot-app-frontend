@@ -1,3 +1,4 @@
+import { AuthCheckService } from './../../../user/auth-check.service';
 import { UserManagementService } from './../../../services/user-management/user-management.service';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
@@ -11,15 +12,21 @@ import { ViewportScroller } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(private userService: UserManagementService) { }
+    login: boolean;
+
+    constructor(
+        private userService: UserManagementService,
+        private authCheckService: AuthCheckService
+        ) { }
 
     ngOnInit() {
-
+        if (this.authCheckService.isAuthenticate()) {
+            this.login = true;
+        } else {
+            this.login = false;
+        }
     }
 
-    getSignIn() {
-        console.log(this.userService.getUserData());
-      }
 }
 
 

@@ -36,6 +36,7 @@ export class HistoryComponent implements OnInit {
   }
 
   getHistoryData(botId) {
+    this.chats = [];
     this.userModel.historyModel.company_id = this.userData.company_id;
     this.userModel.historyModel.project_id = botId;
     this.userModel.historyModel.header = localStorage.getItem('token');

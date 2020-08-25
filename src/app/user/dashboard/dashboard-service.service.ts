@@ -25,6 +25,9 @@ export class DashboardServiceService {
   constructor() { }
 
   getSessionData(lineChart: any[], msgChart: any[], sessionChart: any[]) {
+    this.msgChartSessionData[0].series = [];
+    this.lineChartSessionsData[0].series = [];
+
     for (let i = 0; i < lineChart.length; i++) {
       this.sessionObj = {name: '', value: ''};
       this.msgObj = {name: '', value: ''};
@@ -38,6 +41,9 @@ export class DashboardServiceService {
       this.msgChartSessionData[0].series.push(this.msgObj);
       this.lineChartSessionsData[0].series.push(this.sessionObj);
     }
+
+    console.log('Series', this.msgChartSessionData[0].series);
+    console.log('Sessions', this.lineChartSessionsData[0].series);
 
     return{
       sessionChartData: this.lineChartSessionsData,

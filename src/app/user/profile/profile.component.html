@@ -1,30 +1,13 @@
 <div class="container-fluid h-100" style="padding: 0;">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav disable-upper-header">
-            <a class="nav-item nav-link active" routerLink="/profile">Profile <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" routerLink="/user-cahtbots">My ChatBots</a>
-            <a class="nav-item nav-link"routerLink="/dashboard">Dashboard</a>
-            <a class="nav-item nav-link " routerLink='/history'>History</a>
-            <a class="nav-item nav-link " routerLink='/support'>Support</a>
-            <a class="nav-item nav-link " href="#">LogOut</a>
-
-
-          </div>
-        </div>
-      </nav>
+    <app-profile-responsive-bar></app-profile-responsive-bar>
     <div class="row h-100">
        <div class="col-2 pl-0 hidden-md-down disable-left-header">
             <app-profile-sidebar></app-profile-sidebar>
        </div>
         <div class="col-sm">
-            <div class="row shadow-lg" style="margin-top: 5%;">
+            <div class="row shadow-lg" style="margin-top: 0%;">
                 <div class="col-lg-12" style="padding-left: 0;">
-                    <div style="height: 20rem; background-color: #080A3C;text-align: center;color: white; padding-top: 3%;" >
+                    <div style="height: 28rem; background-color: #080A3C;text-align: center;color: white; padding-top: 5%;" >
                       <img class="align-bottom" style="margin-bottom: 2%;" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
                         <span style="margin-top: 12%;"> {{ name }} </span>
                        

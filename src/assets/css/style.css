@@ -52,6 +52,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+
 a {
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -2921,6 +2922,9 @@ Pricing Area CSS
   margin-top: 30px;
 }
 
+.btn-box {
+  background-color: #ff612f;
+}
 .single-pricing-table:hover {
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
@@ -2939,7 +2943,7 @@ Pricing Area CSS
   display: inline-block;
 }
 
-.pricing-list-tab .tabs li a {
+.pricing-list-tab .tabs li a button {
   display: block;
   background-color: #ffffff;
   color: #8d8fb4;
@@ -2952,7 +2956,7 @@ Pricing Area CSS
   font-weight: 500;
 }
 
-.pricing-list-tab .tabs li a i {
+.pricing-list-tab .tabs li a i button {
   color: #ff612f;
   margin-right: 2px;
   position: absolute;
@@ -2963,16 +2967,16 @@ Pricing Area CSS
   left: 30px;
 }
 
-.pricing-list-tab .tabs li.current a {
+.pricing-list-tab .tabs li.current a button {
   color: #ffffff;
   background-color: #080a3c;
 }
 
-.pricing-list-tab .tabs li:nth-child(1) a {
+.pricing-list-tab .tabs li:nth-child(1) a button {
   border-radius: 30px 0 0 30px;
 }
 
-.pricing-list-tab .tabs li:nth-child(2) a {
+.pricing-list-tab .tabs li:nth-child(2) a button {
   border-radius: 0 30px 30px 0;
 }
 
@@ -2985,7 +2989,7 @@ Pricing Area CSS
 }
 
 .col-lg-4:nth-child(1) .single-pricing-table .btn-box .default-btn {
-  background-color: #080a3c;
+  background-color: white;
 }
 
 .col-lg-4:nth-child(1) .single-pricing-table .btn-box .default-btn i {

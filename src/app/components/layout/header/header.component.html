@@ -52,16 +52,16 @@
                         </li>
                     </ul>
 
-                    <div class="others-options">
-                        <a routerLink="/auth/signup" (click)="getSignIn()" class="default-btn sign-up">
+                    <div class="others-options" *ngIf="!login">
+                        <a routerLink="/auth/signup" class="default-btn sign-up">
                             <i class="bx bxs-hot"></i>Sign Up<span></span>
                         </a>
                         <a routerLink="/auth/signin" class="optional-btn">
                             <i  ss="bx bx-log-in"></i>Log In<span></span>
                         </a>
                     </div>
-                    <div class="others-options" >
-                        <a  class="default-btn sign-up">
+                    <div class="others-options" *ngIf="login">
+                        <a  class="default-btn sign-up" routerLink="/profile">
                             <i class="bx bxs-hot"></i>Go to Console<span></span>
                         </a>
                     </div>
