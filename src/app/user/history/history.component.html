@@ -65,7 +65,7 @@
                    
                           <div class="text-left" style="margin-top: 3%;margin-bottom: 2%;">
                             <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
-                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> U </span>
                               </div>
                               
                             </div>
@@ -79,7 +79,7 @@
                           <div class="text-right" >
                             <span>{{ sesschat.ans }} </span>
                             <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
-                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                              <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> B </span>
                               </div>
                               
                             </div>
@@ -96,7 +96,7 @@
 
         <div class="row h-100 small-screen-chat-app">
              
-          <div class="col-sm-12 h-100 left-user-bar">
+          <div class="col-sm-12 h-100 left-user-bar" [ngStyle]="{display: userBoxShow}">
               <div style="height: 8%; margin-top: 5%;" class="border-top border-bottom row">
                   <!-- Header section starts from here -->
            <div class="col-sm-12">
@@ -135,10 +135,12 @@
               
 
           </div>
-          <div class="col-sm-12 h-100">
+          <div class="col-sm-12 h-100" [ngStyle]="{display: messageBoxShow}">
               <div class="p-3 p-lg-4 border-bottom">
                 <div class="align-items-center row">
+                  <i (click)="changeChatState()" class="fas fa-arrow-left" style="margin-right: 1%;font-size: 1.8rem;"></i>
                   <div class="col-8 col-sm-4">
+
                     <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
                       <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
                       </div>
@@ -154,7 +156,7 @@
                  
                         <div class="text-left" style="margin-top: 3%;margin-bottom: 2%;">
                           <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
-                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> U </span>
                             </div>
                             
                           </div>
@@ -168,7 +170,7 @@
                         <div class="text-right" >
                           <span>{{ sesschat.ans }} </span>
                           <div class="chat-user-img undefined align-self-center mr-3" style="display: inline-flex;">
-                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> G </span>
+                            <div class="avatar-div"><span class="avatar-title rounded-circle bg-soft-primary text-primary"> B </span>
                             </div>
                             
                           </div>

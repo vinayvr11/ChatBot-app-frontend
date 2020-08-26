@@ -63,5 +63,18 @@ export class UserModel {
     company_id: ''
   };
 
+  demoModel = {
+    company_id: '',
+    phone: '',
+    name: '',
+    message: ''
+  };
+
+  paymentStatusModel = {
+    subscription_id: '',
+    payment_id: '',
+    signature: '',
+    company_id: ''
+  };
 }
 

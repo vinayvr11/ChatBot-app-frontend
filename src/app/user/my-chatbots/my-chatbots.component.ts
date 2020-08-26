@@ -24,12 +24,25 @@ export class MyChatbotsComponent implements OnInit {
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('userdata'));
     this.token = localStorage.getItem('token');
+    console.log(this.userData);
+    if (this.userData.isBuy || this.userData.isDemo) {
 
     this.userManagementService.myChatBotData(this.userData.company_id, this.token)
     .subscribe( (botData: any) => {
-       this.botData = [...botData.botsData.allBots];
-       console.log('MyChatBot', this.botData);
+
+      if (this.userData.isBuy) {
+          this.botData = [...botData.body.botsData.allBots];
+        } else if (this.userData.isDemo) {
+          console.log(botData.body);
+          this.botData = [botData.body.demoBot.botChats[0]];
+
+        }
+      console.log('MyChatBot', botData);
+    }, err => {
+      const str = 'AUTH ERROR:' + err.error.error;
+      alert(str);
     });
+  }
   }
 
   setIframeCode(projectid) {
@@ -50,9 +63,19 @@ export class MyChatbotsComponent implements OnInit {
 
     this.userManagementService.integrateBot(this.userModel.botIntegrate)
     .subscribe( (botInfo: any) => {
+
+      console.log(botInfo);
+
       if (botInfo.message) {
-        console.log(botInfo.message, botInfo.bots);
-        this.botData = [...botInfo.bots];
+
+        if (botInfo.demo) {
+          this.botData = [...botInfo.bots.botChats];
+          console.log(this.botData);
+        } else if (botInfo.buy) {
+          console.log(botInfo.message, botInfo.bots);
+          this.botData = [...botInfo.bots];
+        }
+
       } else {
         console.log('Error', botInfo.error);
       }

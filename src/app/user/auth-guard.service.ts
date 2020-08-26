@@ -16,7 +16,7 @@ export class AuthGuardService implements CanActivate{
 
   canActivate(): boolean {
     if (this.authCheckService.isAuthenticate()) {
-      console.log('User not authenticated');
+      console.log('User is authenticated');
 
       return true;
     } else {

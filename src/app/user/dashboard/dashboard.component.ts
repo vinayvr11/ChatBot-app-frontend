@@ -43,8 +43,8 @@ export class DashboardComponent implements OnInit {
   yAxis = true;
   showYAxisLabel = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Year';
-  yAxisLabel = 'Population';
+  xAxisLabel = 'Date';
+  yAxisLabel = 'Number Of Messages';
   timeline = true;
 
 
@@ -54,8 +54,8 @@ export class DashboardComponent implements OnInit {
     showYAxis = true;
     gradient = false;
     showLegend = true;
-    xAxisLabelBar = 'Country';
-    yAxisLabelBar = 'Population';
+    xAxisLabelBar = 'Top 5 Intents';
+    yAxisLabelBar = 'Number of Intents';
 
 
   colorSchemeBar = {
@@ -77,7 +77,11 @@ export class DashboardComponent implements OnInit {
    Object.assign(this, { single });
    this.userData = JSON.parse(localStorage.getItem('userdata'));
    this.token = localStorage.getItem('token');
-   this.botsId = this.userData.project_id;
+   if (this.userData.isBuy) {
+    this.botsId = this.userData.project_id;
+   } else if (this.userData.isDemo) {
+    this.botsId = [this.userData.demoPId];
+   }
    // this.getDashboardData(this.userData.project_id[0]);
   }
 
@@ -103,9 +107,9 @@ export class DashboardComponent implements OnInit {
 
     .subscribe( (dashboardData: any) => {
        console.log('Your sahboard data', dashboardData);
-       this.lineChartLabels = dashboardData.userData.lineChartLabels;
-       this.msgChartData = dashboardData.userData.msgChartData;
-       this.sessionChartData = dashboardData.userData.sessionChartData;
+       this.lineChartLabels = dashboardData.body.userData.lineChartLabels;
+       this.msgChartData = dashboardData.body.userData.msgChartData;
+       this.sessionChartData = dashboardData.body.userData.sessionChartData;
 
        console.log(this.lineChartLabels);
        console.log(this.msgChartData);
@@ -120,11 +124,14 @@ export class DashboardComponent implements OnInit {
           this.sessionChartData)
           .sessionChartData;
 
-       this.intentsData = dashboardData.userData.intents;
+       this.intentsData = dashboardData.body.userData.intents;
 
-       console.log(dashboardData.userData.intents);
+       console.log(dashboardData.body.userData.intents);
        console.log(this.sessionsData);
 
+     }, err => {
+       const str = 'ERROR:' + err.error.error;
+       alert(str);
      });
   }
 

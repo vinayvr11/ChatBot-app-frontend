@@ -1,7 +1,11 @@
 import { Injectable , OnInit} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { UserModel } from '../../models/user-model/user-model.model';
+import { catchError } from 'rxjs/operators';
+import { Observable, ObservableInput } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +17,8 @@ export class UserManagementService {
   ) {}
 
     header: any;
+
+
 
     public getUserData() {
       console.log(this.userModel.loginModel.email);
@@ -37,11 +43,13 @@ export class UserManagementService {
       return this.http.post(environment.apiurl + '/createPayment', paymentBody);
     }
 
+    public getPaymentStatus(paymentStatusBody) {
+      return this.http.post(environment.apiurl + '/paymentStatus', paymentStatusBody);
+    }
+
     public myChatBotData(companyId, header) {
       this.header = {
-        headers: new HttpHeaders({
-          authorization: header
-        })
+        observe: 'response'
       };
       return this.http.post(environment.apiurl + '/myChatBot', {company_id: companyId}, this.header);
     }
@@ -52,18 +60,14 @@ export class UserManagementService {
 
     public getChatHistory(user) {
       this.header = {
-        headers: new HttpHeaders({
-          authorization: user.header
-        })
+        observe: 'response'
       };
       return this.http.post(environment.apiurl + '/history/' + user.project_id, user, this.header);
     }
 
     public getDashboardData(user) {
       this.header = {
-        headers: new HttpHeaders({
-          authorization: user.header
-        })
+        observe: 'response'
       };
       return this.http.post(environment.apiurl + '/dashboard/' + user.project_id, user, this.header);
     }
@@ -74,11 +78,12 @@ export class UserManagementService {
 
     public updateProfile(updateBody) {
       this.header = {
-        headers: new HttpHeaders({
-          authorization: updateBody.header
-        })
+        observe: 'response'
       };
       return this.http.post(environment.apiurl + '/updateProfile', updateBody, this.header);
     }
 
+    public buyDemo(demoBody) {
+      return this.http.post(environment.apiurl + '/buyDemo', demoBody);
+    }
 }

@@ -1,7 +1,8 @@
+import { AuthInterceptorService } from './auth-interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -54,6 +55,8 @@ import { MyChatbotsComponent } from './user/my-chatbots/my-chatbots.component';
 import { RazorpayComponent } from './user/razorpay/razorpay.component';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { ProfileResponsiveBarComponent } from './user/profile-responsive-bar/profile-responsive-bar.component';
+import { CareerComponent } from './user/career/career.component';
+import { JobCardComponent } from './user/career/job-card/job-card.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +103,8 @@ import { ProfileResponsiveBarComponent } from './user/profile-responsive-bar/pro
     RazorpayComponent,
     DashboardComponent,
     ProfileResponsiveBarComponent,
+    CareerComponent,
+    JobCardComponent,
 
   ],
   imports: [
@@ -116,6 +121,9 @@ import { ProfileResponsiveBarComponent } from './user/profile-responsive-bar/pro
   BsModalRef,
   BsModalService,
   AuthGuard,
+  {provide: HTTP_INTERCEPTORS,
+     useClass: AuthInterceptorService,
+      multi: true}
   ],
   entryComponents: [
     UpdateProfileComponent,

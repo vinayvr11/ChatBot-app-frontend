@@ -1,3 +1,4 @@
+import { CareerComponent } from './user/career/career.component';
 import { AuthGuardService} from './user/auth-guard.service';
 import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { NgModule , Injectable  } from '@angular/core';
@@ -91,6 +92,9 @@ const routes: Routes = [
     {path: 'user-cahtbots', component: MyChatbotsComponent, canActivate: [AuthGuardService]},
     { path: 'contact', component: ContactComponent, canActivate: [AuthGuardService]},
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
+    {path: 'about', component: AboutComponent},
+    {path: 'career', component: CareerComponent},
+    {path: 'success', component: SuccessComponent},
     { path: '**', component: ErrorComponent },
 ];
 

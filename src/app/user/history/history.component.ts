@@ -1,3 +1,4 @@
+import { catchError } from 'rxjs/operators';
 import { UserManagementService } from './../../services/user-management/user-management.service';
 import { UserModel } from './../../models/user-model/user-model.model';
 import { Component, OnInit } from '@angular/core';
@@ -16,15 +17,24 @@ export class HistoryComponent implements OnInit {
   botsId: any[];
 
 
+  // Default configurations of responsive chat-app
+  messageBoxShow: string;
+  userBoxShow: string;
+
   constructor(
     private userModel: UserModel,
     private userManagementService: UserManagementService
   ) { }
 
   ngOnInit(): void {
-
+    this.messageBoxShow = 'none';
+    this.userBoxShow = 'block';
     this.userData = JSON.parse(localStorage.getItem('userdata'));
-    this.botsId = this.userData.project_id;
+    if (this.userData.isBuy) {
+      this.botsId = this.userData.project_id;
+     } else if (this.userData.isDemo) {
+      this.botsId = [this.userData.demoPId];
+     }
     console.log('Data', this.userData.company_id);
     this.getHistoryData(this.userData.project_id[0]);
   }
@@ -43,15 +53,21 @@ export class HistoryComponent implements OnInit {
     this.userManagementService.getChatHistory(this.userModel.historyModel)
 
     .subscribe( (chat: any) => {
-      this.sessionChats = [...chat.userData.data];
+      console.log('Your chat data', chat);
+      this.sessionChats = [...chat.body.userData.data];
       console.log('Your history chats', this.sessionChats);
 
+    }, err => {
+      const str = 'ERROR:' + err.error.error;
+      alert(str);
     });
-
   }
 
 
   showChats(session) {
+    this.userBoxShow = 'none';
+
+    this.messageBoxShow = 'block';
     this.sessionChats.forEach(element => {
       if (session.innerText === element.session_id) {
         this.chats = element.chats;
@@ -61,5 +77,10 @@ export class HistoryComponent implements OnInit {
     });
   }
 
+
+  changeChatState() {
+    this.messageBoxShow = 'none';
+    this.userBoxShow = 'block';
+  }
 
 }

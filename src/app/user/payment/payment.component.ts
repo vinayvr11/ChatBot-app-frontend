@@ -81,6 +81,22 @@ export class PaymentComponent implements OnInit {
       options.response = response;
       console.log(response);
       console.log(options);
+      if (response.subscription_id && response.payment_id) {
+        this.userModel.paymentStatusModel.payment_id = response.razorpay_payment_id;
+        this.userModel.paymentStatusModel.subscription_id = response.razorpay_subscription_id;
+        this.userModel.paymentStatusModel.signature = response.razorpay_signature;
+        this.userModel.paymentStatusModel.company_id = this.userSessionData.company_id;
+        this.userManagementService.getPaymentStatus(this.userModel.paymentStatusModel)
+        .subscribe((result: any) => {
+          if (result.message) {
+            localStorage.setItem('userdata', JSON.stringify(result.userData));
+            this.router.navigate(['/success']);
+          } else {
+            const err = 'ERROR:' + result.error;
+            alert(err);
+          }
+        });
+      }
       // call your backend api to verify payment signature & capture transaction
     });
     options.modal.ondismiss = (() => {
@@ -95,10 +111,10 @@ export class PaymentComponent implements OnInit {
   instantiatePaymentData() {
 
    if (this.userSessionData) {
+
         this.userModel.paymentPath.company_id = this.userSessionData.company_id;
         this.userModel.paymentPath.planId = this.planId;
         this.userModel.paymentPath.quantity = this.quantity;
-
         this.userManagementService.createPlan(this.userModel.paymentPath)
 
       .subscribe( (data: {id: string, message: string}) => {
