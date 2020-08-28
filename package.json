@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "node --max_old_space_size=5048 ./node_modules/@angular/cli/bin/ng build --prod"
+    "build-prod": "node --max_old_space_size=5048 ./node_modules/@angular/cli/bin/ng build --prod",
+    "analyze": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -24,9 +25,6 @@
     "@swimlane/ngx-charts": "^14.0.0",
     "@types/bootstrap": "^4.5.0",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.3",
-    "jquery": "^3.5.1",
-    "ng2-charts": "^2.3.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-owl-carousel": "^2.0.7",
     "popper.js": "^1.16.0",

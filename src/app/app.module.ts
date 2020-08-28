@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ChartsModule } from 'ng2-charts';
+
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -112,7 +112,6 @@ import { JobCardComponent } from './user/career/job-card/job-card.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
