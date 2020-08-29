@@ -44,8 +44,8 @@ export class AppComponent implements OnInit, OnDestroy {
         this.routerSubscription = this.router.events
             .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
             .subscribe(event => {
-                $.getScript('/assets/js/custom.js');
-                $.getScript('/assets/js/conversation.js');
+                $.getScript('assets/js/custom.js');
+                $.getScript('assets/js/conversation.js');
                 $('.preloader-area').fadeOut('slow');
                 this.location = this.router.url;
                 if (!(event instanceof NavigationEnd)) {
