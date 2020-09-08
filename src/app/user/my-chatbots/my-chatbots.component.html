@@ -1,115 +1,110 @@
-
 <div class="container-fluid h-100" style="padding: 0%;">
   <app-profile-responsive-bar></app-profile-responsive-bar>
-    <div class="row h-100">
-      <div class="col-2 pl-0 hidden-md-down disable-left-header">
-        <app-profile-sidebar></app-profile-sidebar>
-      </div>
-       <div class="col-sm-3" *ngFor="let bots of botData">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h6 class="card-title">BotName: {{bots.botName}}</h6>
+  <div class="row h-100">
+    <div class="col-2 pl-0 hidden-md-down disable-left-header">
+      <app-profile-sidebar></app-profile-sidebar>
+    </div>
+    <div class="col-sm-3" *ngFor="let bots of botData">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-title">BotName: {{bots.botName}}</h6>
 
-            <h6 class="card-title">Training Status: {{bots.isTrained}}</h6>
-            <h6 class="card-title">Active Status: {{bots.status}}</h6>
-            <h6 class="card-title">Category: {{bots.botCategory}}</h6>           
-            <h6 class="card-title">Category: {{bots.botPlatform}}</h6>
+          <h6 class="card-title">Training Status: {{bots.isTrained}}</h6>
+          <h6 class="card-title">Active Status: {{bots.status}}</h6>
+          <h6 class="card-title">Category: {{bots.botCategory}}</h6>
+          <h6 class="card-title">Category: {{bots.botPlatform}}</h6>
 
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <input type="hidden"  #projectid [value]="bots.projectId">
-            
-            <a  class="btn btn-primary"
-              data-toggle="modal"
-               (click)="setProjectId(projectid)"
-                style="color: white;"
-                 data-target="#exampleModal">
-                 Integrate</a>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <input type="hidden" #projectid [value]="bots.projectId">
 
-            <button class="btn btn-primary"
-             *ngIf="bots.botPlatform == 'FaceBook Messenger' ||
-              bots.botPlatform == 'Website'"
-               (click)="setIframeCode(projectid)"
-                style="margin-left: 5%;"
-                 data-toggle="modal"
-                  data-target="#getCodeModal">
-                  GetCode
-                </button>
-          </div>
+          <a class="btn btn-primary" data-toggle="modal" (click)="setProjectId(projectid)" style="color: white;"
+            data-target="#exampleModal">
+            Integrate</a>
+
+          <button class="btn btn-primary" *ngIf="bots.botPlatform == 'FaceBook Messenger' ||
+              bots.botPlatform == 'Website'" (click)="setIframeCode(projectid)" style="margin-left: 5%;"
+            data-toggle="modal" data-target="#getCodeModal">
+            GetCode
+          </button>
         </div>
+      </div>
     </div>
 
-    </div>
-    
+  </div>
+
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form (ngSubmit)="onIntegrate(f)" #f="ngForm">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ngModel>
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Choose Platform</label>
-                  <select class="form-control" name="platform" ngModel>
-                    <option>Website</option>
-                    <option>WhatsApp</option>
-                    <option>FaceBook Messenger</option>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onIntegrate(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Enter email" ngModel>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Choose Platform</label>
+            <select class="form-control" name="platform" ngModel>
+              <option>Website</option>
+              <option>WhatsApp</option>
+              <option>FaceBook Messenger</option>
 
-                  </select>
-                 </div>
-                 <div class="form-group">
-                  <label for="exampleInputPassword1">Choose Category</label>
-                  <select class="form-control" name="category" ngModel>
-                    <option>Lead Generation</option>
-                    <option>FAQ</option>
-                    <option>Custom</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Choose Category</label>
+            <select class="form-control" name="category" ngModel>
+              <option>Lead Generation</option>
+              <option>FAQ</option>
+              <option>Custom</option>
 
-                  </select>
-                 </div>
+            </select>
+          </div>
 
-                <button type="submit" class="btn btn-primary" >Submit</button>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          
-        </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
+</div>
 
 
-  <!-- Get Code Modal -->
+<!-- Get Code Modal -->
 
 
-  <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="getCodeModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {{ iFrameCode }}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="getCodeModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ iFrameCode }}
+        {{ chatBotSrcFile }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>
