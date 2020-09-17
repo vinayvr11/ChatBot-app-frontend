@@ -17,11 +17,12 @@ import {
 })
 export class SigninComponent implements OnInit {
 
-
+  public spinner: boolean = false
   constructor(
     private userService: UserManagementService,
     private userModel: UserModel,
-    private router: Router
+    private router: Router,
+    
     ) {}
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userdata', JSON.stringify(data.userData));
         this.navProfile();
+        this.spinner = !this.spinner
       } else {
         console.log(data);
       }

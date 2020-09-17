@@ -14,12 +14,19 @@
                         <div class="login-form">
                             <div class="logo">
                                 <a >
-                                    <img src="assets/img/logo.png" alt="image">
+                                    <img src="assets/img/app_logo1.PNG" width="150px" alt="Logo">
                                 </a>
+                                
                             </div>
 
                             <h3>Welcome back</h3>
-                            <p>New to Significant Bots? <a>Sign up</a></p>
+                            <p>New to Significant Bots? <a routerLink="/auth/signup">Sign up</a></p>
+
+                            <div *ngIf = "spinner" class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status">
+                                  <span class="sr-only">Loading...</span>
+                                </div>
+                              </div>
                         
                             <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                                
