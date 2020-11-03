@@ -30,6 +30,7 @@ import { UserManagementService } from '../app/services/user-management/user-mana
 import { PaymentComponent } from './user/payment/payment.component';
 import { SuccessComponent } from './user/success/success.component';
 import { ResetpasswordComponent } from './user/resetpassword/resetpassword.component';
+import { CustomChatbot } from './user/Custom-Chatbot/custom-chatbot.component';
 
 
 @Injectable()
@@ -58,7 +59,9 @@ export class AuthGuard implements CanActivate {
 }
 const routes: Routes = [
     { path: '', component: HomeComponent },
-
+    
+    //custom chatbot route
+    {path : 'configure-chatbot', component : CustomChatbot},
     { path: 'support',  component: SupportComponent },
     { path: 'success',  component: SuccessComponent },
 

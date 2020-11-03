@@ -1,0 +1,108 @@
+<div class="container-fluid">
+    <div class="row header-row">
+       <div class="col-xs-10 col-md-8">
+           <div class="logo">
+                <img src="../../../assets/img/app_logo1.PNG" alt="App Logo">
+           </div>
+       </div>       
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10 col-md-8 col-lg-6 pt-4" style="padding-left: 100px;">
+                <form [formGroup] = "selectionForm">
+
+                    <h1 class="top-header-text">Configure your live chat</h1>
+                    <div class="d-flex flex-column">
+                        
+                        <mat-form-field class="inputName">
+                            <mat-label>Your name</mat-label>
+                            <input matInput [formControlName] = "'name'" type="text" placeholder="Name">
+                        </mat-form-field>                   
+                    </div>
+
+                    <div class="d-flex flex-column color-picker">
+                        <h2 style="font-weight: bold;">Select Color & avatar</h2>
+                        <div class="d-flex mt-2">
+                           <div *ngFor="let color of colorItem">
+                                <div                                     
+                                    class="color-circle" 
+                                    [ngStyle]="{'background-color':color}"
+                                    (click)="onBackgroundChange(color)"></div>
+                           </div>                            
+                            <mat-form-field>
+                                <input matInput type="color" [formControlName] = "'color'" #colVal (click)="onColorSeldctorOpen()">
+                                <button *ngIf="isColorSelectorClicked" class="btn btn-success" (click)="onBackgroundChange(colVal.value)">Okay</button>
+                            </mat-form-field>
+                                   
+                            <!-- Change Profile Logo -->
+                            
+                            <input 
+                                [formControlName]="'avatar'"
+                                style="margin-left: 15px;"
+                                id="logo-file-input"
+                                type="file"
+                                [multiple]="false"
+                                [accept]="'image/jpeg, image/png'"
+                                (change)="assignLogo(logoFileInput.files)"
+                                #logoFileInput
+                            >
+                            
+                        </div>                     
+                    </div>
+
+                    <div class="d-flex flex-column">                                               
+                        <label class="switch">
+                            <input type="checkbox" checked [formControlName] ="'toggle'">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </form>                
+            </div>
+
+            <!-- Chatbot Template -->
+
+            <div class="col-xs-10 col-md-8 col-lg-6 chatbot-template">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-title" [ngStyle]="{'background-color' : imgBack}">
+                        <div class="profile">
+                            <img class="rounded" [src]="logoImageSrc || 'https://scontent.fdel25-1.fna.fbcdn.net/v/t1.0-9/119408122_2473537792943959_8998317715197202457_o.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_ohc=Fcj1jxt94ZAAX-NGLiM&_nc_ht=scontent.fdel25-1.fna&oh=3818ba4a6ce001d63c52bb53cf599b2e&oe=5FC56BCA'" alt="Profile Pic">
+                        </div>
+                        <div class="status-color-container" [ngStyle]="{'background-color' : imgBack}" > 
+                            <div class="status-color">
+                                
+                            </div>
+                        </div>
+                        <div class="header-text">
+                            <h2 class="profile-name">{{selectionForm.get('name').value}}</h2>
+                            <h5 class="status">Online</h5>
+                        </div>                        
+                    </div>
+
+                    <!-- Message Body -->
+                    <div class="card-body">
+                        <div class="message-wraper">
+                            
+                        </div>
+                    </div>   
+                    
+                    <!-- Footer -->
+
+                    <div class="card-footer ">                        
+                        <div class="input-group">                            
+                            <input type="text" class="form-control" placeholder="Ask a question..." aria-label="Input group example" aria-describedby="btnGroupAddon">
+                            <div class="input-group-prepend">
+                                <div class="btn btn-primary" id="btnGroupAddon">Send</div>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+
+    <div class="footer">
+        <button type="submit" (click) = "onSubmit()" class="btn btn-primary btn-block" >Continue</button>
+    </div>
+</div>

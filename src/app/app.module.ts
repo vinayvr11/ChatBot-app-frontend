@@ -57,6 +57,13 @@ import { DashboardComponent } from './user/dashboard/dashboard.component';
 import { ProfileResponsiveBarComponent } from './user/profile-responsive-bar/profile-responsive-bar.component';
 import { CareerComponent } from './user/career/career.component';
 import { JobCardComponent } from './user/career/job-card/job-card.component';
+import {CustomChatbot} from './user/Custom-Chatbot/custom-chatbot.component'
+import {MatStepperModule} from '@angular/material/stepper'
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+// import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {CustomerChatbotService} from './user/Custom-Chatbot/custom-chatbot.service'
 
 @NgModule({
   declarations: [
@@ -105,7 +112,7 @@ import { JobCardComponent } from './user/career/job-card/job-card.component';
     ProfileResponsiveBarComponent,
     CareerComponent,
     JobCardComponent,
-
+    CustomChatbot
   ],
   imports: [
     BrowserModule,
@@ -114,12 +121,18 @@ import { JobCardComponent } from './user/career/job-card/job-card.component';
     HttpClientModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    // MatSlideToggleModule,
     ModalModule.forRoot(),
   ],
   providers: [
   BsModalRef,
   BsModalService,
   AuthGuard,
+  CustomerChatbotService,
   {provide: HTTP_INTERCEPTORS,
      useClass: AuthInterceptorService,
       multi: true}
